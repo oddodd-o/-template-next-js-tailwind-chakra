@@ -5,7 +5,7 @@ import React, { Children } from 'react'
 
 const AuthLayout = ({children}) => {
   return (
-    <Container>{children}</Container>
+    <Container className='flex flex-col py-6'>{children}</Container>
   )
 }
 

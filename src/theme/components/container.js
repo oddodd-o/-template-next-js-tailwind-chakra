@@ -1,9 +1,9 @@
 export const Container = {
   baseStyle: {
     maxW: '1340px',
+    minHeight: '100vh',
     mx: 'auto',
     px: { base: '5', md: '6', lg: '8' },
-    py: { base: '1', md: '1', lg: '1' },
   },
   sizes: {
     sm: {
