@@ -1,0 +1,27 @@
+import Image from 'next/image'
+import React from 'react'
+
+const ListTail = ({ mockNews }) => {
+  return (
+    <ul className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10'>
+        {mockNews.map((news, index) => (
+          <li key={index}>
+            <Image 
+              src={news.imageUrl} 
+              alt={news.title} 
+              width={800}
+              height={500}
+              className='w-full h-50 rounded-lg mb-4 aspect-video object-cover'
+            />
+            <strong className='block text-lg font-semibold mt-5'>{news.title}</strong>
+            {news.content && (<p className='mt-1'>{news.content}</p>)}
+            {news.date && (<span className='text-sm text-gray-400'>
+              {news.date}
+            </span>)}
+          </li>
+        ))}
+      </ul>
+  )
+}
+
+export default ListTail

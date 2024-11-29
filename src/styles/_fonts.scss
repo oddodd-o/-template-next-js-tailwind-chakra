@@ -1,0 +1,39 @@
+$white: #ffffff !default;
+$black: #000000 !default;
+
+// font-style
+$font-family-base: "Pretendard", sans-serif !default;
+$font-size-base: 17px !default;
+$font-color-base: #1d1d1d !default;
+$font-weight-base: 400 !default;
+
+//line height style
+$line-height-none: 1 !default;
+$line-height-base: 1.5 !default;
+
+/* 기본 폰트 설정 */
+html, body {
+  overflow-x: hidden;
+  font-size: $font-size-base; // 17px = 1.6rem
+  line-height: $line-height-base; // 1.5
+  font-family: $font-family-base; // "Noto Sans KR", sans-serif;
+  color: $font-color-base; // #1d1d1d;
+  font-weight: $font-weight-base; // 400
+}
+
+a {
+  color: $font-color-base;
+  text-decoration: none;
+
+  &:active,
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}

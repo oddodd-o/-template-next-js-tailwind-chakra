@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import 'reset';
+@import 'fonts';
+
+// css variables
+$white: #fff;
+$black: #000;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  --primary: #246beb;
+  --secondary: #00ff00;
+
+  --gray-5: #f7f7f7;
+  --gray-10: #f0f0f0;
+  --gray-20: #e0e0e0;
+  --gray-30: #d0d0d0;
+  --gray-40: #c0c0c0;
+  --gray-50: #b0b0b0;
+  --gray-60: #a0a0a0;
+  --gray-70: #909090;
+  --gray-80: #808080;
+  --gray-90: #707070;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
