@@ -9,11 +9,11 @@ import OurPeople from './components/ourPeople'
 import State from './components/state'
 import JoinUs from './components/joinUs'
 
-export default function Example() {
+export default function AboutPage() {
 
   return (
     <>
-      {/* Hero section */}
+        {/* Hero section */}
         <Hero />
 
         {/* Timeline section */}
