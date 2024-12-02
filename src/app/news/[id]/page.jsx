@@ -3,6 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 
 const NewsDetail = ({ params }) => {
+  // URL 파라미터에서 id 값 가져오기
   const { id } = params;
 
   // 해당 뉴스 데이터 찾기

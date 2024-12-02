@@ -116,7 +116,7 @@ const Header = ({type = "type1", title, sharing, prev }) => {
           <header className="fixed top-0 left-0 right-0 z-50 bg-white flex items-center h-14 border-b border-gray-200">
           <Container className='flex justify-between items-center relative'>
             <Button variant='icon' align="left">
-              <ChevronLeft strokeWidth={3} size={3} />
+              <ChevronLeft strokeWidth={3} />
               <span className="blind">이전</span>
             </Button>          
             {title && <Heading as="h1" className='text-xl absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>{title}</Heading>}
