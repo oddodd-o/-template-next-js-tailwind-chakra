@@ -2,24 +2,22 @@ import { getPostById, updatePost, deletePost } from '@/lib/posts';
 import { NextResponse } from 'next/server';
 
 export async function GET(request, { params }) {
-  try {
-    const post = getPostById(params.id);
-    
-    if (!post) {
-      return NextResponse.json(
-        { error: '게시글을 찾을 수 없습니다.' },
-        { status: 404 }
-      );
-    }
-    
-    return NextResponse.json(post);
-  } catch (error) {
-    console.error('게시글 조회 오류:', error);
-    return NextResponse.json(
-      { error: '게시글을 불러오는데 실패했습니다.' },
-      { status: 500 }
+  const id = parseInt(params.id, 10);
+  const post = getPostById(id);
+  
+  if (!post) {
+    return new Response(
+      JSON.stringify({ message: '게시글을 찾을 수 없습니다.' }), 
+      { 
+        status: 404,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
     );
   }
+  
+  return NextResponse.json(post);
 }
 
 export async function PUT(request, { params }) {
