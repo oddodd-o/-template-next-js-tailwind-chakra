@@ -1,64 +1,46 @@
 import { getPostById, updatePost, deletePost } from '@/lib/posts';
-import { NextResponse } from 'next/server';
 
 export async function GET(request, { params }) {
-  const id = parseInt(params.id, 10);
-  const post = getPostById(id);
-  
+  console.log('GET 요청 ID:', params.id); // 요청된 ID 확인
+
+  const post = getPostById(params.id);
   if (!post) {
-    return new Response(
-      JSON.stringify({ message: '게시글을 찾을 수 없습니다.' }), 
-      { 
-        status: 404,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
+    return new Response(JSON.stringify({ error: '글을 찾을 수 없습니다.' }), {
+      status: 404,
+    });
   }
-  
-  return NextResponse.json(post);
+
+  console.log('조회된 게시글:', post); // 조회된 게시글 로그
+  return new Response(JSON.stringify(post), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
 
+
 export async function PUT(request, { params }) {
-  try {
-    const data = await request.json();
-    const post = updatePost(params.id, data);
-    
-    if (!post) {
-      return NextResponse.json(
-        { error: '게시글을 찾을 수 없습니다.' },
-        { status: 404 }
-      );
-    }
-    
-    return NextResponse.json(post);
-  } catch (error) {
-    return NextResponse.json(
-      { error: '게시글 수정에 실패했습니다.' },
-      { status: 400 }
-    );
+  const data = await request.json();
+  const updatedPost = updatePost(params.id, data);
+  if (!updatedPost) {
+    return new Response(JSON.stringify({ error: '수정할 글을 찾을 수 없습니다.' }), {
+      status: 404,
+    });
   }
+  return new Response(JSON.stringify(updatedPost), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
 
 export async function DELETE(request, { params }) {
-  try {
-    const success = deletePost(params.id);
-    if (!success) {
-      return NextResponse.json(
-        { error: '게시글을 찾을 수 없습니다.' },
-        { status: 404 }
-      );
-    }
-    
-    return NextResponse.json(
-      { message: '게시글이 삭제되었습니다.' },
-      { status: 200 }
-    );
-  } catch (error) {
-    return NextResponse.json(
-      { error: '게시글 삭제에 실패했습니다.' },
-      { status: 500 }
-    );
+  const success = deletePost(params.id);
+  if (!success) {
+    return new Response(JSON.stringify({ error: '삭제할 글을 찾을 수 없습니다.' }), {
+      status: 404,
+    });
   }
+  return new Response(JSON.stringify({ message: '삭제되었습니다.' }), {
+    status: 200,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }

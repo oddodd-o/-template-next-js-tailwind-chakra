@@ -1,19 +1,17 @@
 'use client';
+import { useRouter } from 'next/navigation';
+
 function DeleteButton({ postId }) {
   const router = useRouter();
 
-  async function handleDelete() {
-    if (!window.confirm('정말 삭제하시겠습니까?')) {
-      return;
-    }
+  const handleDelete = async () => {
+    if (!window.confirm('정말 삭제하시겠습니까?')) return;
 
     try {
-      const response = await fetch(`/api/posts/${postId}`, {
-        method: 'DELETE',
-      });
+      const response = await fetch(`/api/posts/${postId}`, { method: 'DELETE' });
 
       if (!response.ok) {
-        throw new Error('삭제에 실패했습니다.');
+        throw new Error('삭제 실패');
       }
 
       router.push('/posts');
@@ -21,7 +19,7 @@ function DeleteButton({ postId }) {
     } catch (error) {
       alert(error.message);
     }
-  }
+  };
 
   return (
     <button

@@ -1,36 +1,55 @@
-// lib/posts.js
-let posts = []; // 초기 데이터 배열
-let nextId = 1;
+let posts = [
+  {
+    id: 1,
+    title: '첫 번째 게시글',
+    content: '안녕하세요. 첫 번째 게시글입니다.',
+    createdAt: new Date().toISOString(),
+  },
+];
+
+function generateId() {
+  return posts.length > 0 ? Math.max(...posts.map((post) => post.id)) + 1 : 1;
+}
 
 export function getPosts() {
-  console.log('현재 게시글 목록:', posts); // 디버깅용
   return [...posts];
 }
 
 export function getPostById(id) {
-  console.log('찾는 ID:', id); // 디버깅용
-  console.log('현재 게시글 목록:', posts); // 디버깅용
-  const post = posts.find(post => post.id === parseInt(id));
-  console.log('찾은 게시글:', post); // 디버깅용
-  return post || null;
+  const numId = parseInt(id, 10);
+  return posts.find((post) => post.id === numId) || null;
 }
 
-export function addPost(postData) {
-  const post = {
-    id: nextId++,
-    ...postData,
+export function addPost(post) {
+  const newPost = {
+    id: generateId(),
+    ...post,
     createdAt: new Date().toISOString(),
   };
-  posts.unshift(post); // 최신글을 앞에 추가
-  console.log('게시글 추가됨:', post); // 디버깅용
-  return post;
+  posts.unshift(newPost); // 최신글을 맨 앞으로 추가
+  console.log('새 게시글 추가:', newPost); // 로그로 확인
+  return newPost;
+}
+
+export function updatePost(id, updatedData) {
+  const numId = parseInt(id, 10);
+  const index = posts.findIndex((post) => post.id === numId);
+  if (index === -1) return null;
+
+  const updatedPost = {
+    ...posts[index],
+    ...updatedData,
+    updatedAt: new Date().toISOString(),
+  };
+  posts[index] = updatedPost;
+  return updatedPost;
 }
 
 export function deletePost(id) {
-  const index = posts.findIndex(post => post.id === parseInt(id));
+  const numId = parseInt(id, 10);
+  const index = posts.findIndex((post) => post.id === numId);
   if (index === -1) return false;
-  
-  const deleted = posts.splice(index, 1);
-  console.log('삭제된 게시글:', deleted); // 디버깅용
+
+  posts.splice(index, 1);
   return true;
 }

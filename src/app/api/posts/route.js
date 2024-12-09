@@ -10,7 +10,7 @@ export async function GET() {
 export async function POST(request) {
   try {
     const data = await request.json();
-    console.log('받은 데이터:', data); // 디버깅용
+    console.log('POST 요청 데이터:', data); // 요청 데이터 확인
 
     if (!data.title || !data.content) {
       return NextResponse.json(
@@ -20,11 +20,10 @@ export async function POST(request) {
     }
 
     const newPost = addPost(data);
-    console.log('생성된 게시글:', newPost); // 디버깅용
-
+    console.log('추가된 게시글:', newPost); // 추가된 게시글 확인
     return NextResponse.json(newPost, { status: 201 });
   } catch (error) {
-    console.error('게시글 작성 에러:', error); // 디버깅용
+    console.error('게시글 작성 에러:', error);
     return NextResponse.json(
       { error: '게시글 작성에 실패했습니다.' },
       { status: 500 }
