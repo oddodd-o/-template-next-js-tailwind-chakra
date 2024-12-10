@@ -1,5 +1,3 @@
-"use client";
-
 import "@/styles/globals.scss";
 import { Providers } from "@/components/providers";
 import SkipNav from "@/components/layout/header/SkipNav";
