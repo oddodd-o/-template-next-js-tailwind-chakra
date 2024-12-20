@@ -1,11 +1,9 @@
 import React from 'react'
-import IntroSwiper from './introSwiper'
-import News from './news'
+import IntroSwiper from './components/introSwiper'
+import News from './components/news'
 import { mockNews } from '@/data/newsData'
-import Link from 'next/link'
-import Image from 'next/image'
-import Hero from './hero'
-import Bento from './bento'
+import Hero from './components/hero'
+import Bento from './components/bento'
 
 const Home = () => {
   return (
