@@ -3,8 +3,9 @@ export const mockNews = [
     id: '1',
     title: '스타트업, 100억 원 투자 유치 성공',
     content: '국내 스타트업이 100억 원 규모의 시리즈 A 투자를 유치하며, 글로벌 시장 진출을 가속화하고 있습니다. 이번 투자는 국내 벤처캐피탈을 포함한 여러 투자자로부터 유치되었으며, 해당 스타트업은 AI 기반 플랫폼 기술을 통해 새로운 시장 기회를 창출하고 있습니다. 회사는 이 자금을 활용하여 연구개발과 마케팅에 집중할 계획입니다.',
-    imageUrl: 'https://images.unsplash.com/photo-1518600506278-4e8ef466b810',
+    imageUrl: 'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0',
     date: '2024-11-24',
+    
   },
   {
     id: '2',

@@ -6,8 +6,8 @@ import Main from '@/components/layout/Main'
 const AboutLayout = ({children}) => {
   return (
     <>
-      <Header />
-      {/* <Header type='type2' title="about" sharing={true} prev={true} /> */}
+      {/* <Header /> */}
+      <Header type='type2' sharing={true} prev={true} />
       <Main>{children}</Main>
       <Footer />
     </>

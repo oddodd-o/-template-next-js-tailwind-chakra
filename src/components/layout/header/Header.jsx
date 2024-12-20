@@ -141,8 +141,6 @@ const Header = ({type = "type1", title, sharing, prev }) => {
   return (
     <>
         {renderHeader()}
-
-      
     </>
   );
 }

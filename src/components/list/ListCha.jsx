@@ -5,7 +5,8 @@ import Link from 'next/link';
 
 const ListCha = ({ mockNews }) => {
   return (
-    <SimpleGrid as="ul" columns={[1, null, 2, 3, 4]} gap="40px">
+    // <SimpleGrid as="ul" columns={[1, null, 2, 3, 4]} gap="40px">
+    <SimpleGrid as="ul" columns={{base: 1, md: 2, lg: 3, xl:4}} gap="40px">
         {mockNews.map((news, index) => (
           <li key={index}>
             <Link href={`/news/${news.id}`}>
