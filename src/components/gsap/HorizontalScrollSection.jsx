@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Home() {
+export default function HorizontalScrollSection() {
   const main = useRef();
   const scrollContainer = useRef();
 

@@ -32,6 +32,20 @@ module.exports = {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      animation: {
+        'flow-right': 'flowRight 20s linear infinite',
+        'flow-left': 'flowLeft 20s linear infinite',
+      },
+      keyframes: {
+        flowRight: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(100%)' },
+        },
+        flowLeft: {
+          '0%': { transform: 'translateX(100%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
+      },
     },
   },
   plugins: [
