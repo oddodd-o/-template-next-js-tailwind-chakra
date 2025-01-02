@@ -8,16 +8,18 @@ const Container = ({ children }) => {
 
 export const Wrap = ({ children }) => {
   return (
-    <div className='min-h-screen flex flex-col pb-0'>{ children }</div>
+    <div className='min-h-screen flex flex-col pb-0'>
+      { children }
+    </div>
   )
 }
 
-export const Section = ({ children }) => {
+export const Section = ({ children, title }) => {
   return (
     <section className='py-20'>
-      <h2>title</h2>
+      <h2>{title}</h2>
       <div>
-        { children }
+        {children}
       </div>
     </section>
   )
