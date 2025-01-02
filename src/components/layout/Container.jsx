@@ -6,9 +6,20 @@ const Container = ({ children }) => {
   )
 }
 
+export const Wrap = ({ children }) => {
+  return (
+    <div className='min-h-screen flex flex-col pb-0'>{ children }</div>
+  )
+}
+
 export const Section = ({ children }) => {
   return (
-    <section className='py-20'>{ children }</section>
+    <section className='py-20'>
+      <h2>title</h2>
+      <div>
+        { children }
+      </div>
+    </section>
   )
 }
 

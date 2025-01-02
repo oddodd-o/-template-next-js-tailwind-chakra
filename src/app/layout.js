@@ -1,6 +1,7 @@
 import "@/styles/globals.scss";
 import { Providers } from "@/components/providers";
 import SkipNav from "@/components/layout/header/SkipNav";
+import { Wrap } from "@/components/layout/Container";
 
 export const metadata = {
   title: 'next.js template',
@@ -34,9 +35,9 @@ export default function RootLayout({ children }) {
       <body>
         <Providers>
           <SkipNav />
-          <div id="wrap" className="min-h-svh flex flex-col">
+          <Wrap>
             {children}
-          </div>
+          </Wrap>
         </Providers>
       </body>
     </html>
