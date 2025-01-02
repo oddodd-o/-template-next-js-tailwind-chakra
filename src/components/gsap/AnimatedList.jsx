@@ -45,7 +45,7 @@ export default function AnimatedList() {
   useEffect(() => {
     const listElements = listRef.current.querySelectorAll('.list-item');
 
-    listElements.forEach((el, index) => {
+    listElements.forEach((el) => {
       gsap.fromTo(
         el,
         { color: '#A1A1A1', opacity: 0.5 },
@@ -54,14 +54,15 @@ export default function AnimatedList() {
           opacity: 1,
           scrollTrigger: {
             trigger: el,
-            start: 'top 70%', // 화면의 50% 지점을 기준
-            end: '+=100',
-            toggleActions: 'play none none reverse', // 스크롤 방향에 따라 애니메이션 실행
+            start: 'top 50%',
+            end: 'bottom 40%',
+            toggleActions: 'play none none reverse',
           },
-          duration: 0.5,
         }
       );
     });
+
+    ScrollTrigger.refresh();
 
     return () => {
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -70,7 +71,7 @@ export default function AnimatedList() {
 
   return (
     <div className="w-full flex flex-col items-center mt-10">
-      <ul ref={listRef} className="space-y-8 text-lg font-semibold w-1/2">
+      <ul ref={listRef} className="space-y-8 text-lg font-semibold w-3/4">
         {listItems.map((item, index) => (
           <li
             key={index}
