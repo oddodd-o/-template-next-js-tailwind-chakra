@@ -29,6 +29,29 @@ module.exports = {
     },
     extend: {
       colors: {
+        primary: {
+          DEFAULT: "var(--primary)",
+          40: "var(--primary-40)",
+          60: "var(--primary-60)",
+        },
+        secondary: {
+          DEFAULT: "var(--secondary)",
+          40: "var(--secondary-40)",
+          60: "var(--secondary-60)",
+        },
+        gray: {
+          DEFAULT: "var(--gray)",
+          5: "var(--gray-5)",
+          10: "var(--gray-10)",
+          20: "var(--gray-20)",
+          30: "var(--gray-30)",
+          40: "var(--gray-40)",
+          50: "var(--gray-50)",
+          60: "var(--gray-60)",
+          70: "var(--gray-70)",
+          80: "var(--gray-80)",
+          90: "var(--gray-90)",
+        },
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
